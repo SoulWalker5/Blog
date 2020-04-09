@@ -28,7 +28,6 @@ namespace BL.Service
         public override User Map(UserBL model)
         {
             return _mapper.Map<User>(model);
-
         }
         public override IEnumerable<UserBL> Map(IList<User> entitiesList)
         {

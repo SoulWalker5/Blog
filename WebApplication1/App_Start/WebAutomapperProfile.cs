@@ -17,6 +17,11 @@ namespace WebApplication1.App_Start
             CreateMap<ArticleModel, ArticleBL>().ReverseMap();
             CreateMap<UserModel, UserBL>().ReverseMap();
 
+            //CreateMap<CategoryBL, CategoryModel>().ReverseMap();
+            //CreateMap<CommentBL, CommentModel>().ReverseMap();
+            //CreateMap<ArticleBL, ArticleModel>().ReverseMap();
+            //CreateMap<UserBL, UserModel>().ReverseMap();
+
         }
     }
 }

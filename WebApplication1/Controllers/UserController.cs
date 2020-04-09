@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         public ActionResult Details(int id)
         {
             var userBL = _service.FindById(id);
-            var userView = _mapper.Map<IEnumerable<UserModel>>(userBL);
+            var userView = _mapper.Map<UserModel>(userBL);
             return View(userView);
         }
 
@@ -66,17 +66,22 @@ namespace WebApplication1.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var userBL = _service.FindById(id);
+            var userView = _mapper.Map<UserModel>(userBL);
+
+
+            return View(userView);
         }
 
         // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(UserModel model)
+        public ActionResult Edit(int id,UserModel model)
         {
             try
             {
                 // TODO: Add update logic here
                 var userBL = _mapper.Map<UserBL>(model);
+
                 _service.Update(userBL);
                 return RedirectToAction("Index");
             }
@@ -89,7 +94,9 @@ namespace WebApplication1.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var userBL = _service.FindById(id);
+            var userView = _mapper.Map<UserModel>(userBL);
+            return View(userView);
         }
 
         // POST: User/Delete/5

@@ -1,6 +1,7 @@
 ﻿using DAL.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,15 +50,13 @@ namespace DAL.Repository
         public void Remove(int id)
         {
             var tEntity = _ctx.Set<T>().Find(id);
-
             _ctx.Set<T>().Remove(tEntity);
             _ctx.SaveChanges();
         }
 
         public void Update(T item)
         {
-            var searchRes = _ctx.Set<T>().Find(item);
-            searchRes = item;
+            _ctx.Entry(item).State = EntityState.Modified;
             _ctx.SaveChanges();
         }
     }
