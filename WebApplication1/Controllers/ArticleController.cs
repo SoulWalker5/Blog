@@ -19,11 +19,13 @@ namespace WebApplication1.Controllers
             _service = article;
             _mapper = mapper;
         }
+
         // GET: Article
         public ActionResult Index()
         {
             var articleBL = _service.GetAll().ToList();
             var articleView = _mapper.Map<IEnumerable<ArticleModel>>(articleBL);
+
             return View(articleView);
         }
 
@@ -31,14 +33,14 @@ namespace WebApplication1.Controllers
         public ActionResult Details(int id)
         {
             var articleBL = _service.FindById(id);
-            var articleView = _mapper.Map<IEnumerable<ArticleModel>>(articleBL);
+            var articleView = _mapper.Map<ArticleModel>(articleBL);
+
             return View(articleView);
         }
 
         // GET: Article/Create
         public ActionResult Create()
         {
-
             return View();
         }
 

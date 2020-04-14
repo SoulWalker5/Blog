@@ -17,10 +17,12 @@ namespace BL.Service
     public class UserService : GenericService<UserBL, User>, IUserService
     {
         private readonly IMapper _mapper;
+
         public UserService(IGenericRepository<User> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
         }
+
         public override UserBL Map(User model)
         {
             return _mapper.Map<UserBL>(model);
@@ -29,6 +31,7 @@ namespace BL.Service
         {
             return _mapper.Map<User>(model);
         }
+
         public override IEnumerable<UserBL> Map(IList<User> entitiesList)
         {
             return _mapper.Map<IEnumerable<UserBL>>(entitiesList);

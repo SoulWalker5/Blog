@@ -27,7 +27,8 @@ namespace BL.Service
         }
         public override Comment Map(CommentBL model)
         {
-            throw new System.NotImplementedException();
+            return _mapper.Map<Comment>(model);
+
         }
         public override IEnumerable<CommentBL> Map(IList<Comment> entitiesList)
         {

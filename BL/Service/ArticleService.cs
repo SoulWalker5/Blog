@@ -27,7 +27,7 @@ namespace BL.Service
         }
         public override Article Map(ArticleBL model)
         {
-            throw new System.NotImplementedException();
+            return _mapper.Map<Article>(model);
         }
         public override IEnumerable<ArticleBL> Map(IList<Article> entitiesList)
         {

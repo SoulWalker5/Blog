@@ -12,6 +12,7 @@ namespace DAL.Entity
         {
             Comments = new List<Comment>();
         }
+
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
@@ -22,6 +23,6 @@ namespace DAL.Entity
         public User User { get; set; }
         public Category Category { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

@@ -1,5 +1,7 @@
+using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -20,6 +22,8 @@ namespace WebApplication1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             LightInjectConfig.Configurate();
+            Database.SetInitializer(new ContentInitializer());
+
 
         }
     }

@@ -10,6 +10,7 @@ namespace BL.BLModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
         public IEnumerable<ArticleBL> Articles { get; set; }
     }
 }

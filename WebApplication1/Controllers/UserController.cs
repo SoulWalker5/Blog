@@ -22,11 +22,13 @@ namespace WebApplication1.Controllers
             _service = service;
             _mapper = mapper;
         }
+
         // GET: User
         public ActionResult Index()
         {
             var userBL = _service.GetAll().ToList();
             var userView = _mapper.Map<IEnumerable<UserModel>>(userBL);
+
             return View(userView);
         }
 
@@ -35,6 +37,7 @@ namespace WebApplication1.Controllers
         {
             var userBL = _service.FindById(id);
             var userView = _mapper.Map<UserModel>(userBL);
+
             return View(userView);
         }
 
@@ -69,7 +72,6 @@ namespace WebApplication1.Controllers
             var userBL = _service.FindById(id);
             var userView = _mapper.Map<UserModel>(userBL);
 
-
             return View(userView);
         }
 
@@ -81,8 +83,8 @@ namespace WebApplication1.Controllers
             {
                 // TODO: Add update logic here
                 var userBL = _mapper.Map<UserBL>(model);
-
                 _service.Update(userBL);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -96,6 +98,7 @@ namespace WebApplication1.Controllers
         {
             var userBL = _service.FindById(id);
             var userView = _mapper.Map<UserModel>(userBL);
+
             return View(userView);
         }
 
@@ -107,6 +110,7 @@ namespace WebApplication1.Controllers
             {
                 // TODO: Add delete logic here
                 _service.Remove(id);
+
                 return RedirectToAction("Index");
             }
             catch

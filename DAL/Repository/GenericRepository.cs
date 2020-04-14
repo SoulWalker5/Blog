@@ -37,13 +37,15 @@ namespace DAL.Repository
 
         public IEnumerable<T> GetAll()
         {
-            var searachRes = _ctx.Set<T>().ToList();
+            var searachRes = _ctx.Set<T>();
+
             return searachRes;
         }
 
         public T FindById(int id)
         {
             var search = _ctx.Set<T>().Find(id);
+
             return search;
         }
 

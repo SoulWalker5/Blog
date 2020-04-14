@@ -19,6 +19,7 @@ namespace BL.Service
         where DModel : class
     {
         private readonly IGenericRepository<DModel> _repository;
+
         public GenericService(IGenericRepository<DModel> repository)
         {
             _repository = repository;
@@ -29,23 +30,22 @@ namespace BL.Service
             var entity = Map(item);
             _repository.Create(entity);
         }
-
         public BLModel FindById(int id)
         {
             var entity = _repository.FindById(id);
+
             return Map(entity);
         }
-
         public IEnumerable<BLModel> GetAll()
         {
             var listEntity = _repository.GetAll().ToList();
+
             return Map(listEntity);
         }
         public void Remove(int id)
         {
             _repository.Remove(id);
         }
-
         public void Update(BLModel item)
         {
             var model = Map(item);

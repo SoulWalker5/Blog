@@ -27,7 +27,8 @@ namespace BL.Service
         }
         public override Category Map(CategoryBL model)
         {
-            throw new System.NotImplementedException();
+            return _mapper.Map<Category>(model);
+
         }
         public override IEnumerable<CategoryBL> Map(IList<Category> entitiesList)
         {

@@ -12,10 +12,13 @@ namespace WebApplication1.Models
 
         //[Required]
         public string FirstName { get; set; }
+
         //[Required]
         public string LastName { get; set; }
+
         //[Required]
         public string NickName { get; set; }
+
         //[Required]
         public int Age { get; set; }
 
