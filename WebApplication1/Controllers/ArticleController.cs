@@ -48,19 +48,16 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Create(ArticleModel model)
         {
-            try
+            // TODO: Add insert logic here
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                var articleBL = _mapper.Map<ArticleBL>(model);
-                _service.Create(articleBL);
-
-                return RedirectToAction("Index");
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+
+            var articleBL = _mapper.Map<ArticleBL>(model);
+            _service.Create(articleBL);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Article/Edit/5
@@ -73,19 +70,16 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Edit(int id, ArticleModel model)
         {
-            try
+            // TODO: Add update logic here
+            if (!ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                var articleBL = _mapper.Map<ArticleBL>(model);
-                _service.Update(articleBL);
-
-                return RedirectToAction("Index");
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+
+            var articleBL = _mapper.Map<ArticleBL>(model);
+            _service.Update(articleBL);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Article/Delete/5
@@ -98,16 +92,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
-                _service.Remove(id);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            // TODO: Add delete logic here
+            _service.Remove(id);
+
+            return RedirectToAction("Index");
         }
     }
 }

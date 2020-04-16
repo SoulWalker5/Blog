@@ -5,12 +5,12 @@ using System.Web;
 
 namespace Web_Api.Models
 {
-    public class CommentModel
+    public class CommentApiModel
     {
         public int Id { get; set; }
         public string Body { get; set; }
 
-        public UserModel User { get; set; }
-        public ArticleModel Article { get; set; }
+        public UserApiModel User { get; set; }
+        public ArticleApiModel Article { get; set; }
     }
 }

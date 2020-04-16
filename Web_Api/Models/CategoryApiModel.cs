@@ -5,11 +5,10 @@ using System.Web;
 
 namespace Web_Api.Models
 {
-    public class CategoryModel
+    public class CategoryApiModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<ArticleModel> Articles { get; set; }
 
     }
 }

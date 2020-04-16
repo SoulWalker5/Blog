@@ -12,9 +12,7 @@ namespace WebApplication1.Controllers
 {
     public class UserController : Controller
     {
-
         private IUserService _service;
-
         private IMapper _mapper;
 
         public UserController(IUserService service, IMapper mapper)
@@ -51,19 +49,16 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Create(UserModel model)
         {
-            try
+            // TODO: Add insert logic here
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                var userBL = _mapper.Map<UserBL>(model);
-                _service.Create(userBL);
-
-                return RedirectToAction("Index");
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+
+            var userBL = _mapper.Map<UserBL>(model);
+            _service.Create(userBL);
+
+            return RedirectToAction("Index");
         }
 
         // GET: User/Edit/5
@@ -77,20 +72,18 @@ namespace WebApplication1.Controllers
 
         // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id,UserModel model)
+        public ActionResult Edit(int id, UserModel model)
         {
-            try
+            // TODO: Add update logic here
+            if (!ModelState.IsValid)
             {
-                // TODO: Add update logic here
-                var userBL = _mapper.Map<UserBL>(model);
-                _service.Update(userBL);
+                return View(model);
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var userBL = _mapper.Map<UserBL>(model);
+            _service.Update(userBL);
+
+            return RedirectToAction("Index");
         }
 
         // GET: User/Delete/5
@@ -106,17 +99,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
-                _service.Remove(id);
+            // TODO: Add delete logic here
+            _service.Remove(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }

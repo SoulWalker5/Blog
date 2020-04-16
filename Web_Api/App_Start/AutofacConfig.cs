@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using BL.Service;
 using System.Reflection;
 using System.Web.Http;
 
@@ -25,7 +26,10 @@ namespace Web_Api.App_Start
             builder.RegisterWebApiModelBinderProvider();
 
 
-            //builder.RegisterType<ArticleService>().As<IArticleService>();
+            builder.RegisterType<ArticleService>().As<IArticleService>();
+            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<CommentService>().As<ICommentService>();
+            builder.RegisterType<CategoryService>().As<ICategoryService>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();

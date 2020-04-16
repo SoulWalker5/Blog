@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Web_Api.Models
 {
-    public class UserModel
+    public class UserApiModel
     {
         public int Id { get; set; }
 
@@ -17,8 +17,5 @@ namespace Web_Api.Models
         public string NickName { get; set; }
         //[Required]
         public int Age { get; set; }
-
-        public IEnumerable<CommentModel> Comments { get; set; }
-        public IEnumerable<ArticleModel> Articles { get; set; }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -19,8 +21,9 @@ namespace Web_Api
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AutofacConfig.InitAutfac();
-            //Database.SetInitializer(new ContentInitializer());
+            LightInjectConfig.Configurate();
+            //AutofacConfig.InitAutfac();
+            Database.SetInitializer(new ContentInitializer());
         }
     }
 }
