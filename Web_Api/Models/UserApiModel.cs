@@ -9,6 +9,7 @@ namespace Web_Api.Models
     [DataContract(IsReference = true)]
     public class UserApiModel
     {
+        [DataMember]
         public int Id { get; set; }
 
         [DataMember]

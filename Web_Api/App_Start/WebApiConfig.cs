@@ -10,9 +10,7 @@ namespace Web_Api
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.PreserveReferencesHandling =
-                Newtonsoft.Json.PreserveReferencesHandling.All;
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

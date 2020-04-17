@@ -54,7 +54,7 @@ namespace Web_Api.Controllers
 
         // PUT: api/User/5
         [HttpPut]
-        public IHttpActionResult Put([FromBody] ArticleApiModel apiModel)
+        public IHttpActionResult Put([FromBody] UserApiModel apiModel)
         {
             var userBL = _mapper.Map<UserBL>(apiModel);
             _service.Update(userBL);

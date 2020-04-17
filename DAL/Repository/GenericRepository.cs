@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,8 @@ namespace DAL.Repository
 
         public void Update(T item)
         {
-            _ctx.Entry(item).State = EntityState.Modified;
+            _ctx.Set<T>().AddOrUpdate(item);
+            //_ctx.Entry(item).State = EntityState.Modified;
             _ctx.SaveChanges();
         }
     }
