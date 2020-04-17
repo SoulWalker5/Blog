@@ -28,13 +28,36 @@
             </div>
         </div>
     </div>
+
+
     <div class="container body-content">
+
         @RenderBody()
+
+        <div class="container" id="map" style="height: 400px; width: 720px; position: initial; "></div>
+        <script>
+
+            var map;
+            function initMap() {
+                var alvl = { lat: 49.9873573, lng: 36.2302349 };
+                map = new google.maps.Map(document.getElementById('map'), { center: alvl, zoom: 15 });
+                var marker = new google.maps.Marker({position: alvl, map: map});
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUCypew-kaLPmsronnbCpzRlTN7czxLW8&callback=initMap"
+                async defer></script>
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+
+    <div id="map"></div>
+
+
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
