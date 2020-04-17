@@ -22,17 +22,24 @@ namespace Web_Api.Controllers
             _mapper = mapper;
         }
         // GET: api/User
+
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            return Ok(_service.GetAll());
+            var model = _service.GetAll();
+            var apimodel = _mapper.Map<IEnumerable<UserApiModel>>(model);
+
+            return Ok(apimodel);
         }
 
         // GET: api/User/5
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            return Ok(_service.FindById(id));
+            var model = _service.FindById(id);
+            var apimodel = _mapper.Map<UserApiModel>(model);
+
+            return Ok(apimodel);
         }
 
         // POST: api/User

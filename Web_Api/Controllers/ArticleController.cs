@@ -27,14 +27,20 @@ namespace Web_Api.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            return Ok(_service.GetAll());
+            var model = _service.GetAll();
+            var apimodel = _mapper.Map<IEnumerable<ArticleApiModel>>(model);
+
+            return Ok(apimodel);
         }
 
         // GET: api/Article/5
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            return Ok(_service.FindById(id));
+            var model = _service.FindById(id);
+            var apimodel = _mapper.Map<ArticleApiModel>(model);
+
+            return Ok(apimodel);
         }
 
         // POST: api/Article
@@ -51,7 +57,7 @@ namespace Web_Api.Controllers
         [HttpPut]
         public IHttpActionResult Put([FromBody] ArticleApiModel apiModel)
         {
-             var articleBL = _mapper.Map<ArticleBL>(apiModel);
+            var articleBL = _mapper.Map<ArticleBL>(apiModel);
             _service.Update(articleBL);
 
             return Ok();
